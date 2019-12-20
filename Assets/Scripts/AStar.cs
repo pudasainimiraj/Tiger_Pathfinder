@@ -6,7 +6,7 @@ public class AStar
     public AStar()
     {
     }
-    public List<SheetMover> PathfindAStar(Graph aGraph, GameObject start, GameObject end,
+    public List<Connection> PathfindAStar(Graph aGraph, GameObject start, GameObject end,
     Heuristic myHeuristic)
     {
         // Set up the start record.
@@ -22,7 +22,7 @@ public class AStar
         OpenList.AddNodeRecord(StartRecord);
         // Iterate through and process each node.
         NodeRecord CurrentRecord = null;
-        List<SheetMover> Connections;
+        List<Connection> Connections;
         while (OpenList.GetSize() > 0)
         {
             // Find the smallest element in the open list (using the estimatedTotalCost).
@@ -33,7 +33,7 @@ public class AStar
                 break;
             }
 
-           // 20
+         
         
 // Otherwise get its outgoing connections.
             Connections = aGraph.GetConnections(CurrentRecord.Node);
@@ -42,7 +42,7 @@ public class AStar
             float EndNodeCost;
             NodeRecord EndNodeRecord;
             float EndNodeHeuristic;
-            foreach (SheetMover aConnection in Connections)
+            foreach (Connection aConnection in Connections)
             {
                 // Get the cost estimate for the end node.
                 EndNode = aConnection.GetToNode();
@@ -91,12 +91,11 @@ public class AStar
                     EndNodeRecord = new NodeRecord();
                     EndNodeRecord.Node = EndNode;
                     // We’ll need to calculate the heuristic value using the function, since we don’t have
-                    //an existing record to use.
+                    
                     EndNodeHeuristic = myHeuristic.Estimate(EndNode, end);
                 }
 
-                
-
+  
 
 // We’re here if we need to update the node Update the cost, estimate and connection.
                 EndNodeRecord.CostSoFar = EndNodeCost;
@@ -109,13 +108,13 @@ public class AStar
                 }
             } //#END: Looping through Connections.
               // We’ve finished looking at the connections for the current node, so add it to the closed
-         //   list
+            
         // and remove it from the open list
 OpenList.RemoveNodeRecord(CurrentRecord);
             ClosedList.AddNodeRecord(CurrentRecord);
         }
         // We’re here if we’ve either found the goal, or if we’ve no more nodes to search, find which.
-        List<SheetMover> tempList = new List<SheetMover>();
+        List<Connection> tempList = new List<Connection>();
         if (!CurrentRecord.Node.Equals(end))
         {
             // We’ve run out of nodes without finding the goal, so there’s no solution
@@ -129,7 +128,7 @@ OpenList.RemoveNodeRecord(CurrentRecord);
                 CurrentRecord = ClosedList.Find(CurrentRecord.Connection.GetFromNode());
             }
             // The path is in the wrong order. Reverse the path, and return it.
-            List<SheetMover> tempList2 = new List<SheetMover>();
+            List<Connection> tempList2 = new List<Connection>();
             for (int i = (tempList.Count - 1); i >= 0; i--)
             {
                 tempList2.Add(tempList[i]);

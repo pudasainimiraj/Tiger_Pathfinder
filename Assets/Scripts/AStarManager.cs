@@ -13,12 +13,12 @@ public class AStarManager
     {
     }
     // Add Connection.
-    public void AddConnection(SheetMover connection)
+    public void AddConnection(Connection connection)
     {
         aGraph.AddConnection(connection);
     }
     // Find path.
-    public List<SheetMover> PathfindAStar(GameObject start, GameObject end)
+    public List<Connection> PathfindAStar(GameObject start, GameObject end)
     {
         return AStar.PathfindAStar(aGraph, start, end, aHeuristic);
     }

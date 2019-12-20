@@ -4,20 +4,20 @@ using UnityEngine;
 public class Graph
 {
     // A list of graph connections.
-    private List<SheetMover> WaypointConnections = new List<SheetMover>();
+    private List<Connection> WaypointConnections = new List<Connection>();
     public Graph()
     {
     }
     // Add connection.
-    public void AddConnection(SheetMover aConnection)
+    public void AddConnection(Connection aConnection)
     {
         WaypointConnections.Add(aConnection);
     }
     // Get the connections from a node to the nodes it is connected to.
-    public List<SheetMover> GetConnections(GameObject FromNode)
+    public List<Connection> GetConnections(GameObject FromNode)
     {
-        List<SheetMover> TmpConnections = new List<SheetMover>();
-        foreach (SheetMover aConnection in WaypointConnections)
+        List<Connection> TmpConnections = new List<Connection>();
+        foreach (Connection aConnection in WaypointConnections)
         {
             if (aConnection.GetFromNode().Equals(FromNode))
             {

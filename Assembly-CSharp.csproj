@@ -73,12 +73,12 @@
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
     <Compile Include="Assets\Scripts\AStar.cs" />
     <Compile Include="Assets\Scripts\AStarManager.cs" />
+    <Compile Include="Assets\Scripts\Connections.cs" />
     <Compile Include="Assets\Scripts\Graph.cs" />
     <Compile Include="Assets\Scripts\Heuristic.cs" />
     <Compile Include="Assets\Scripts\NodeRecord.cs" />
-    <Compile Include="Assets\Scripts\PathfinderTester.cs" />
     <Compile Include="Assets\Scripts\PathfindingList.cs" />
-    <Compile Include="Assets\Scripts\SheetMover.cs" />
+    <Compile Include="Assets\Scripts\PathfindingTester.cs" />
     <Compile Include="Assets\Scripts\WaypointCON.cs" />
     <None Include="Assets\Baker House\Readme.txt" />
     <None Include="Assets\EasyRoads3D\shaders\EasyRoads3D-Surface-Offset.shader" />

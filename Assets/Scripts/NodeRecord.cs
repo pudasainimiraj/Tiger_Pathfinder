@@ -4,7 +4,7 @@ using UnityEngine;
 public class NodeRecord
 {
     public GameObject Node;
-    public SheetMover Connection;
+    public Connection Connection;
     public float CostSoFar;
     public float EstimatedTotalCost;
     public NodeRecord()

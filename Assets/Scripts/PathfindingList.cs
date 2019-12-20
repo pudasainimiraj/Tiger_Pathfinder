@@ -23,6 +23,7 @@ public class PathfindingList
         return NodeRecordList.Count;
     }
 
+
 // Get the smallest element.
 public NodeRecord GetSmallestElement()
     {
